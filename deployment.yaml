@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dadjokes
+  namespace: sre-techtask
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dadjokes
+  template:
+    metadata:
+      labels:
+        app: dadjokes
+    spec:
+      containers:
+      - name: dadjokes
+        image: yesinteractive/dadjokes
+        ports:
+        - containerPort: 8100
